@@ -1,0 +1,4 @@
+PySide6-Essentials>=6.7,<6.13
+Pillow>=10.0
+pyinstaller>=6.10
+pytest>=8.0

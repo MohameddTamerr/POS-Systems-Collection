@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+.venv/
+venv/
+env/
+
+# PyInstaller build artifacts
+build/
+dist/
+*.manifest
+
+# Local databases & test outputs
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+.pytest_cache/
+
+# OS & Editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log
