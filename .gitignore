@@ -19,7 +19,13 @@ dist/
 *.db-shm
 *.sqlite
 *.sqlite3
+*.bak
+*.zip
 .pytest_cache/
+
+# Secrets & environment overrides
+.env
+.env.*
 
 # OS & Editors
 .DS_Store
@@ -28,3 +34,4 @@ desktop.ini
 .vscode/
 .idea/
 *.log
+*.err

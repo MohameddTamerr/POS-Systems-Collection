@@ -28,9 +28,17 @@ a = Analysis(
     binaries=[],
     datas=[
         (str(project_root / "src" / "cafe_pos" / "assets"), "cafe_pos/assets"),
+        (str(project_root / "src" / "cafe_pos" / "translations"), "cafe_pos/translations"),
     ],
     hiddenimports=[
         "PySide6.QtPrintSupport",
+        "PySide6.QtSvg",
+        "PIL.Image",
+        "PIL.ImageOps",
+        "argon2",
+        "argon2.low_level",
+        "_argon2_cffi_bindings",
+        "_cffi_backend",
     ],
     hookspath=[],
     hooksconfig={},

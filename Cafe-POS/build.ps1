@@ -21,7 +21,7 @@ if (-not (Test-Path $VenvPython)) {
     python -m venv $VenvDir
 }
 
-& $VenvPython -c "import PySide6.QtWidgets, PySide6.QtPrintSupport, PyInstaller, pytest" 2>$null
+& $VenvPython -c "import PySide6.QtWidgets, PySide6.QtPrintSupport, PySide6.QtSvg, PIL.Image, argon2, PyInstaller, pytest" 2>$null
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Installing dependencies from requirements.txt..." -ForegroundColor Yellow
     & $VenvPython -m pip install --upgrade pip

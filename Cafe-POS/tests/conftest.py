@@ -31,3 +31,35 @@ def qapp():
         app = QApplication([])
     return app
 
+
+@pytest.fixture(autouse=True)
+def _reset_language_and_cleanup_qt():
+    from PySide6.QtCore import QLocale, Qt
+    from PySide6.QtWidgets import QApplication
+
+    from cafe_pos.config import BusinessConfig
+    from cafe_pos.i18n import qt_locale, set_language
+    from cafe_pos.theme import apply_theme
+
+    def _reset_env() -> None:
+        set_language("en")
+        QLocale.setDefault(qt_locale("en"))
+        app = QApplication.instance()
+        if app is not None:
+            app.setLayoutDirection(Qt.LeftToRight)
+            apply_theme(app, BusinessConfig(), lang="en")
+
+    _reset_env()
+    yield
+
+    app = QApplication.instance()
+    if app is not None:
+        for w in list(app.topLevelWidgets()):
+            try:
+                w.close()
+                w.deleteLater()
+            except RuntimeError:
+                pass
+        app.processEvents()
+    _reset_env()
+
